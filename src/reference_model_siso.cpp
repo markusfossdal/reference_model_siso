@@ -1,6 +1,6 @@
 #include "reference_model_siso.hpp"
 
-ReferenceFilterSiso::ReferenceFilterSiso() : eta_ddot(0), eta_dot(0), eta(0) {}
+ReferenceFilterSiso::ReferenceFilterSiso() : eta_ddot(0), eta_dot(0), eta(0), temp(0) {}
 
 void ReferenceFilterSiso::model_order_2(
     double desired_signal,

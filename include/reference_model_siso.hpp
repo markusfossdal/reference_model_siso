@@ -23,5 +23,6 @@ class ReferenceFilterSiso {
 
  private:
   double eta_ddot, eta_dot, eta;
+  double temp;
   double dt;
 };
