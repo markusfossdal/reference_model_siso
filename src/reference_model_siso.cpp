@@ -1,7 +1,7 @@
 #include "reference_model_siso.hpp"
 
 ReferenceFilterSiso::ReferenceFilterSiso()
-    : state_ddot(0), state_dot(0), state(0) {}
+    : state_ddot(0), state_dot(0), state(0), temp(0) {}
 
 void ReferenceFilterSiso::model_order_2(
     double desired_state,

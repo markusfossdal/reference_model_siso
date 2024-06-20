@@ -27,5 +27,6 @@ class ReferenceFilterSiso {
 
  private:
   double state_ddot, state_dot, state;
+  double temp;
   double dt;
 };
