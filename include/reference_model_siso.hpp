@@ -26,11 +26,6 @@ class ReferenceFilterSiso {
   double get_state();
 
  private:
-<<<<<<< HEAD
-  double eta_ddot, eta_dot, eta;
-  double temp;
-=======
   double state_ddot, state_dot, state;
->>>>>>> tmp
   double dt;
 };
