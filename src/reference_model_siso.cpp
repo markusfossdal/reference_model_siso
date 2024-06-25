@@ -53,7 +53,7 @@ void ReferenceFilterSiso::model_order_3(
     double sat_state_dot_upper,
     double dt) {
   // compute low-pass filtered acceleration input
-  double temp = (desired_state - temp) * omega_n * dt;
+  double temp = (desired_state - this->temp) * omega_n * dt;
   //low-pass filtered acceleration input to 2nd order system.
   model_order_2(
       temp, omega_n, zeta, sat_state_ddot_lower, sat_state_ddot_upper,
