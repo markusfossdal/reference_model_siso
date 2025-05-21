@@ -1,4 +1,5 @@
 /.vscode
 /build
-/build-debugd
+/build-debug
+/build-rel
 /.cache

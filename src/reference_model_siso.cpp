@@ -22,13 +22,14 @@ void ReferenceFilterSiso::model_order_2(
   } else if (state_ddot > sat_state_ddot_upper) {
     state_ddot = sat_state_ddot_upper;
   } else {
-    state_ddot = state_ddot;
+    double temp = state_ddot;
+    state_ddot = temp;
   }
 
   // compute state_dot
   state_dot += (state_ddot + (-2 * zeta * omega_n * state_dot) +
-                           (-omega_n * omega_n * state)) *
-                              dt;
+                (-omega_n * omega_n * state)) *
+               dt;
 
   // saturation limit state_dot
   if (state_dot < sat_state_dot_lower) {
@@ -36,7 +37,8 @@ void ReferenceFilterSiso::model_order_2(
   } else if (state_dot > sat_state_dot_upper) {
     state_dot = sat_state_dot_upper;
   } else {
-    state_dot = state_dot;
+    double temp = state_dot;
+    state_dot = temp;
   }
 
   // compute state
@@ -54,10 +56,16 @@ void ReferenceFilterSiso::model_order_3(
     double dt) {
   // compute low-pass filtered acceleration input
   this->temp += (desired_state - this->temp) * omega_n * dt;
-  //low-pass filtered acceleration input to 2nd order system.
+  // low-pass filtered acceleration input to 2nd order system.
   model_order_2(
-      this->temp, omega_n, zeta, sat_state_ddot_lower, sat_state_ddot_upper,
-      sat_state_dot_lower, sat_state_dot_upper, dt);
+      this->temp,
+      omega_n,
+      zeta,
+      sat_state_ddot_lower,
+      sat_state_ddot_upper,
+      sat_state_dot_lower,
+      sat_state_dot_upper,
+      dt);
 }
 
 double ReferenceFilterSiso::get_state_ddot() {
